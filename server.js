@@ -7,7 +7,8 @@ app.set( 'views', __dirname + '/views')
 app.set( 'view engine', 'jade')
 app.use( express.static( __dirname + '/public'))
 
-app.get( '/', function ( req, res) {
+app.get( '*', function ( req, res) {
+  console.dir('path_with_params: '+req.originalUrl)
   res.render( 'pages/index', {
     app_environment:    app.settings.env,
     application_name:   cf_app.get_app_name(),
